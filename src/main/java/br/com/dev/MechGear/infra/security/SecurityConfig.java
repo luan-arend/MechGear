@@ -27,7 +27,8 @@ public class SecurityConfig {
         return http.csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.POST, "/login").permitAll() // Permite acesso público ao endpoint de login
+                        .requestMatchers(HttpMethod.POST, "/login").permitAll()
+                        .requestMatchers("/", "/index.html", "/css/**", "/js/**", "/assets/**").permitAll()
                         .anyRequest().authenticated() // Exige autenticação para qualquer outra requisição
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
