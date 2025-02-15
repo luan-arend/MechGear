@@ -14,6 +14,11 @@ public class AppConfig implements WebMvcConfigurer {
                 .allowedOrigins("http://127.0.0.1:5500")
                 .allowedMethods("POST")
                 .allowCredentials(true);
+
+        registry.addMapping("/login")
+                .allowedOrigins("http://localhost:5173")
+                .allowedMethods("POST","GET","PUT","DELETE")
+                .allowCredentials(true);
     }
 
     /*@Override
