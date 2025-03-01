@@ -41,4 +41,11 @@ public class CustomersController {
         var customer = repository.getReferenceById(id);
         return ResponseEntity.ok(new CustomersDetailDto(customer));
     }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity deleteById(@PathVariable Long id) {
+        repository.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
 }
