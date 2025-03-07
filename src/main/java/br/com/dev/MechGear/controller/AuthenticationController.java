@@ -1,8 +1,8 @@
 package br.com.dev.MechGear.controller;
 
-import br.com.dev.MechGear.domain.user.AuthenticationDto;
-import br.com.dev.MechGear.domain.user.Users;
-import br.com.dev.MechGear.infra.security.TokenJWTDto;
+import br.com.dev.MechGear.dto.security.AuthenticationDto;
+import br.com.dev.MechGear.domain.users.Users;
+import br.com.dev.MechGear.dto.security.TokenJWTDto;
 import br.com.dev.MechGear.infra.security.TokenService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

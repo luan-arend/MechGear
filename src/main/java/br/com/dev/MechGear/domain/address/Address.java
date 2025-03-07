@@ -1,5 +1,6 @@
 package br.com.dev.MechGear.domain.address;
 
+import br.com.dev.MechGear.dto.address.AddressDto;
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

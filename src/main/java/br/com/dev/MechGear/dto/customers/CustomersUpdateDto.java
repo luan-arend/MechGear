@@ -1,7 +1,6 @@
-package br.com.dev.MechGear.domain.customer;
+package br.com.dev.MechGear.dto.customers;
 
-import br.com.dev.MechGear.domain.address.Address;
-import br.com.dev.MechGear.domain.address.AddressDto;
+import br.com.dev.MechGear.dto.address.AddressDto;
 import jakarta.validation.constraints.NotNull;
 
 public record CustomersUpdateDto(

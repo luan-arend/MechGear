@@ -1,6 +1,9 @@
 package br.com.dev.MechGear.controller;
 
 import br.com.dev.MechGear.domain.customer.*;
+import br.com.dev.MechGear.dto.customers.CustomersDetailDto;
+import br.com.dev.MechGear.dto.customers.CustomersDto;
+import br.com.dev.MechGear.dto.customers.CustomersUpdateDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -32,7 +35,7 @@ public class CustomersController {
     @PostMapping
     @Transactional
     public ResponseEntity create(@RequestBody CustomersDto dados, UriComponentsBuilder uriBuilder) {
-        var customer = new Customers(dados);
+        var customer = new CustomersImpl(dados);
         repository.save(customer);
 
         var uri = uriBuilder.path("/customers/{id}").buildAndExpand(customer.getId()).toUri();

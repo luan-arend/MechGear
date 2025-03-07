@@ -1,4 +1,4 @@
-package br.com.dev.MechGear.domain.user;
+package br.com.dev.MechGear.domain.users;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

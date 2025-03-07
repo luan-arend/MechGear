@@ -1,6 +1,6 @@
 package br.com.dev.MechGear.infra.security;
 
-import br.com.dev.MechGear.domain.user.UsersRepository;
+import br.com.dev.MechGear.domain.users.UsersRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

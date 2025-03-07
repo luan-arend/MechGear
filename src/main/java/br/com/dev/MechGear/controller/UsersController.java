@@ -1,7 +1,7 @@
 package br.com.dev.MechGear.controller;
 
-import br.com.dev.MechGear.domain.user.UserDetailDto;
-import br.com.dev.MechGear.domain.user.UsersRepository;
+import br.com.dev.MechGear.dto.users.UserDetailDto;
+import br.com.dev.MechGear.domain.users.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

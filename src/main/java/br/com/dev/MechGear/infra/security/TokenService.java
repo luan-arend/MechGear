@@ -1,6 +1,6 @@
 package br.com.dev.MechGear.infra.security;
 
-import br.com.dev.MechGear.domain.user.Users;
+import br.com.dev.MechGear.domain.users.Users;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;

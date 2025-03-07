@@ -1,6 +1,6 @@
-package br.com.dev.MechGear.domain.customer;
+package br.com.dev.MechGear.dto.customers;
 
-import br.com.dev.MechGear.domain.address.AddressDto;
+import br.com.dev.MechGear.dto.address.AddressDto;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

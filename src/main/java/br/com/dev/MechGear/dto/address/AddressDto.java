@@ -1,4 +1,4 @@
-package br.com.dev.MechGear.domain.address;
+package br.com.dev.MechGear.dto.address;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

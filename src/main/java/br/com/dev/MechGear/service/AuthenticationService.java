@@ -1,6 +1,6 @@
-package br.com.dev.MechGear.domain.service;
+package br.com.dev.MechGear.service;
 
-import br.com.dev.MechGear.domain.user.UsersRepository;
+import br.com.dev.MechGear.domain.users.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
