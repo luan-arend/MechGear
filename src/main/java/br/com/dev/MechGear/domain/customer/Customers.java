@@ -41,5 +41,26 @@ public class Customers {
         this.phone = customersDto.phone();
         this.email = customersDto.email();
         this.address = new Address(customersDto.address());
+        this.created_at = LocalDateTime.now();
+        this.updated_at = LocalDateTime.now();
+    }
+
+    public void update(CustomersUpdateDto dados) {
+        if (dados.name() != null) {
+            this.name = dados.name();
+        }
+        if (dados.cpf_cnpj() != null) {
+            this.cpf_cnpj = dados.cpf_cnpj();
+        }
+        if (dados.phone() != null) {
+            this.phone = dados.phone();
+        }
+        if (dados.email() != null) {
+            this.email = dados.email();
+        }
+        if (dados.address() != null) {
+            this.address.update(dados.address());
+        }
+        this.updated_at = LocalDateTime.now();
     }
 }

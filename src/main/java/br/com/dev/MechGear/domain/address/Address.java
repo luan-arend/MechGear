@@ -28,4 +28,28 @@ public class Address {
         this.state = addressDto.state();
         this.zip_code = addressDto.zip_code();
     }
+
+    public void update(AddressDto dados) {
+        if (dados.street() != null) {
+            this.street = dados.street();
+        }
+        if (dados.number() != null) {
+            this.number = dados.number();
+        }
+        if (dados.complement() != null) {
+            this.complement = dados.complement();
+        }
+        if (dados.neighborhood() != null) {
+            this.neighborhood = dados.neighborhood();
+        }
+        if (dados.city() != null) {
+            this.city = dados.city();
+        }
+        if (dados.state() != null) {
+            this.state = dados.state();
+        }
+        if (dados.zip_code() != null) {
+            this.zip_code = dados.zip_code();
+        }
+    }
 }
