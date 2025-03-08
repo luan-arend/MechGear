@@ -5,9 +5,10 @@ import br.com.dev.MechGear.domain.customer.CustomersRepository;
 import br.com.dev.MechGear.dto.customers.CustomersDetailDto;
 import br.com.dev.MechGear.dto.customers.CustomersDto;
 import br.com.dev.MechGear.dto.customers.CustomersUpdateDto;
-import org.springframework.data.domain.Example;
+import br.com.dev.MechGear.infra.exception.ValidateException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -26,6 +27,12 @@ public class CustomerService {
     }
 
     public CustomersImpl createCustomer(CustomersDto dados) {
+        boolean exists = repository.existsByName(dados.name());
+
+        if (exists) {
+            throw new ValidateException("Cliente já cadastrado na base de dados.", HttpStatus.BAD_REQUEST);
+        }
+
         var customer = new CustomersImpl(dados);
         repository.save(customer);
         return customer;

@@ -1,10 +1,11 @@
 package br.com.dev.MechGear.controller;
 
-import br.com.dev.MechGear.domain.customer.*;
 import br.com.dev.MechGear.dto.customers.CustomersDetailDto;
 import br.com.dev.MechGear.dto.customers.CustomersDto;
 import br.com.dev.MechGear.dto.customers.CustomersUpdateDto;
+import br.com.dev.MechGear.infra.exception.ValidateException;
 import br.com.dev.MechGear.service.CustomerService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -35,7 +36,7 @@ public class CustomersController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<CustomersDetailDto> create(@RequestBody CustomersDto dados, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity create(@Valid @RequestBody CustomersDto dados, UriComponentsBuilder uriBuilder) {
         var customer = customerService.createCustomer(dados);
         var uri = uriBuilder.path("/customers/{id}").buildAndExpand(customer.getId()).toUri();
         return ResponseEntity.created(uri).body(new CustomersDetailDto(customer));
