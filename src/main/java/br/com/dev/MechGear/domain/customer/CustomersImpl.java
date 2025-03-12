@@ -22,7 +22,8 @@ public class CustomersImpl implements Customers {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String cpf_cnpj;
+    @Column(name = "cpfCnpj")
+    private String cpfCnpj;
 
     private String name;
 
@@ -38,7 +39,7 @@ public class CustomersImpl implements Customers {
     private Address address;
 
     public CustomersImpl(CustomersDto customersDto){
-        this.cpf_cnpj = customersDto.cpf_cnpj();
+        this.cpfCnpj = customersDto.cpfCnpj();
         this.name = customersDto.name();
         this.phone = customersDto.phone();
         this.email = customersDto.email();
@@ -52,8 +53,8 @@ public class CustomersImpl implements Customers {
         if (dados.name() != null) {
             this.name = dados.name();
         }
-        if (dados.cpf_cnpj() != null) {
-            this.cpf_cnpj = dados.cpf_cnpj();
+        if (dados.cpfCnpj() != null) {
+            this.cpfCnpj = dados.cpfCnpj();
         }
         if (dados.phone() != null) {
             this.phone = dados.phone();

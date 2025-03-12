@@ -14,7 +14,7 @@ public record AddressDto(
         String city,
         @NotBlank
         String state,
-        @NotBlank @Pattern(regexp = "\\d{8}")
-        String zip_code
+        @NotBlank @Pattern(regexp = "\\d{8}", message = "CEP inválido.")
+        String zipCode
 ) {
 }

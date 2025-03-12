@@ -7,7 +7,7 @@ public record CustomersUpdateDto(
         @NotNull
         Long id,
         String name,
-        String cpf_cnpj,
+        String cpfCnpj,
         String phone,
         String email,
         AddressDto address

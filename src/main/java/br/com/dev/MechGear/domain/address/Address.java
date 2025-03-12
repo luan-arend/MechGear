@@ -1,6 +1,7 @@
 package br.com.dev.MechGear.domain.address;
 
 import br.com.dev.MechGear.dto.address.AddressDto;
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,7 +19,8 @@ public class Address {
     private String neighborhood;
     private String city;
     private String state;
-    private String zip_code;
+    @Column(name = "zipCode")
+    private String zipCode;
 
     public Address(AddressDto addressDto){
         this.street = addressDto.street();
@@ -27,7 +29,7 @@ public class Address {
         this.neighborhood = addressDto.neighborhood();
         this.city = addressDto.city();
         this.state = addressDto.state();
-        this.zip_code = addressDto.zip_code();
+        this.zipCode = addressDto.zipCode();
     }
 
     public void update(AddressDto dados) {
@@ -49,8 +51,8 @@ public class Address {
         if (dados.state() != null) {
             this.state = dados.state();
         }
-        if (dados.zip_code() != null) {
-            this.zip_code = dados.zip_code();
+        if (dados.zipCode() != null) {
+            this.zipCode = dados.zipCode();
         }
     }
 }

@@ -18,16 +18,16 @@ public class CustomerService {
     @Autowired
     private CustomersRepository repository;
 
-    public Page<CustomersDetailDto> getAllCustomers(Pageable paginacao) {
+    public Page<CustomersDetailDto> getAll(Pageable paginacao) {
         return repository.findAll(paginacao).map(CustomersDetailDto::new);
     }
 
-    public CustomersImpl getCustomerById(Long id) {
+    public CustomersImpl getById(Long id) {
         return repository.getReferenceById(id);
     }
 
-    public CustomersImpl createCustomer(CustomersDto dados) {
-        boolean exists = repository.existsByName(dados.name());
+    public CustomersImpl create(CustomersDto dados) {
+        boolean exists = repository.existsByCpfCnpj(dados.cpfCnpj());
 
         if (exists) {
             throw new ValidateException("Cliente já cadastrado na base de dados.", HttpStatus.BAD_REQUEST);
@@ -38,13 +38,13 @@ public class CustomerService {
         return customer;
     }
 
-    public CustomersImpl updateCustomer(CustomersUpdateDto dados) {
-        var customer = getCustomerById(dados.id());
+    public CustomersImpl update(CustomersUpdateDto dados) {
+        var customer = getById(dados.id());
         customer.update(dados);
         return customer;
     }
 
-    public void deleteCustomer(Long id) {
+    public void delete(Long id) {
         repository.deleteById(id);
     }
 }

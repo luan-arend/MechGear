@@ -6,12 +6,12 @@ import br.com.dev.MechGear.domain.customer.CustomersImpl;
 public record CustomersDetailDto(
         Long id,
         String name,
-        String cpf_cnpj,
+        String cpfCnpj,
         String phone,
         String email,
         Address address
 ) {
     public CustomersDetailDto(CustomersImpl customers) {
-        this(customers.getId(), customers.getName(), customers.getCpf_cnpj(), customers.getPhone(), customers.getEmail(), customers.getAddress());
+        this(customers.getId(), customers.getName(), customers.getCpfCnpj(), customers.getPhone(), customers.getEmail(), customers.getAddress());
     }
 }
