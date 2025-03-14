@@ -44,8 +44,8 @@ public class EquipmentController {
     @PutMapping()
     @Transactional
     public ResponseEntity<EquipmentDetailDto> update(@RequestBody EquipmentUpdateDto dados) {
-        var customer = equipmentService.update(dados);
-        return ResponseEntity.ok(new EquipmentDetailDto(customer));
+        var equipment = equipmentService.update(dados);
+        return ResponseEntity.ok(new EquipmentDetailDto(equipment));
     }
 
     @DeleteMapping("/{id}")
