@@ -28,8 +28,9 @@ docker pull postgres
 ```
 * Em seguida, rodar o comando para rodar o banco:
 ```
-docker run -p 5432:5432 -e POSTGRES_PASSWORD=1234 -d postgres
+docker run -p 5432:5432 -e POSTGRES_PASSWORD=senha -v caminho_para_salvar:/var/lib/postgresql/data -d postgres
 ```
 Imagem estará baixada e rodando localmente via Docker 😊.
 
-⌨️ com ❤️ por [Luan Arend](https://github.com/luan-arend) 😊
+
+⌨️ por [Luan Arend](https://github.com/luan-arend) 😊
