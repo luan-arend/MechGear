@@ -20,10 +20,4 @@ public class AppConfig implements WebMvcConfigurer {
                 .allowedMethods("POST","GET","PUT","DELETE")
                 .allowCredentials(true);
     }
-
-    /*@Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/**")
-                .addResourceLocations("classpath:/static/");
-    }*/
 }
