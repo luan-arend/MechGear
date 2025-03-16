@@ -1,5 +1,6 @@
 package br.com.dev.MechGear.domain.customer;
 
+import br.com.dev.MechGear.domain.AbstractBaseEntity;
 import br.com.dev.MechGear.domain.address.Address;
 import br.com.dev.MechGear.dto.customers.CustomersDto;
 import br.com.dev.MechGear.dto.customers.CustomersUpdateDto;
@@ -9,31 +10,19 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
 @Table(name = "customers")
 @Entity(name = "Customers")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "id")
-public class CustomersImpl implements Customers {
-
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@EqualsAndHashCode(callSuper = true)
+public class CustomersImpl extends AbstractBaseEntity implements Customers {
 
     @Column(name = "cpfCnpj")
     private String cpfCnpj;
-
     private String name;
-
     private String phone;
-
     private String email;
-
-    private LocalDateTime created_at;
-
-    private LocalDateTime updated_at;
 
     @Embedded
     private Address address;
@@ -44,8 +33,6 @@ public class CustomersImpl implements Customers {
         this.phone = customersDto.phone();
         this.email = customersDto.email();
         this.address = new Address(customersDto.address());
-        this.created_at = LocalDateTime.now();
-        this.updated_at = LocalDateTime.now();
     }
 
     @Override
@@ -65,6 +52,5 @@ public class CustomersImpl implements Customers {
         if (dados.address() != null) {
             this.address.update(dados.address());
         }
-        this.updated_at = LocalDateTime.now();
     }
 }

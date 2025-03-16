@@ -1,5 +1,6 @@
 package br.com.dev.MechGear.domain.items;
 
+import br.com.dev.MechGear.domain.AbstractBaseEntity;
 import br.com.dev.MechGear.dto.items.ItemsDto;
 import br.com.dev.MechGear.dto.items.ItemsUpdateDto;
 import jakarta.persistence.*;
@@ -15,12 +16,9 @@ import java.time.LocalDateTime;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "id")
-public class ItemsImpl implements Items {
+@EqualsAndHashCode(callSuper = true)
+public class ItemsImpl extends AbstractBaseEntity implements Items {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String name;
     private String description;
     private String code;
@@ -31,8 +29,6 @@ public class ItemsImpl implements Items {
     private Double cost_price;
     private String supplier;
     private String location;
-    private LocalDateTime created_at;
-    private LocalDateTime updated_at;
 
     public ItemsImpl(ItemsDto dados) {
         this.name = dados.name();
@@ -45,8 +41,6 @@ public class ItemsImpl implements Items {
         this.cost_price = dados.cost_price();
         this.supplier = dados.supplier();
         this.location = dados.location();
-        this.created_at = LocalDateTime.now();
-        this.updated_at = LocalDateTime.now();
     }
 
     @Override
@@ -81,6 +75,5 @@ public class ItemsImpl implements Items {
         if (dados.location() != null) {
             this.location = dados.location();
         }
-        this.updated_at = LocalDateTime.now();
     }
 }
