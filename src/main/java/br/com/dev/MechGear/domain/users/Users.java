@@ -28,6 +28,7 @@ public class Users implements UserDetails {
     private String username;
     private String password;
     private String role;
+    private String email;
     private LocalDateTime created_at;
 
     @Override
